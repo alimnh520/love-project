@@ -33,7 +33,7 @@ const Provider = ({children}) => {
     },[]);
 
     return (
-        <div className='bg-[#111020] w-full overflow-x-hidden relative' ref={mainDiv}>
+        <div className='bg-[#111020] w-full overflow-hidden relative' ref={mainDiv}>
             <Header />
             {children}
         </div>
