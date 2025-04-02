@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 body{
-  overflow: hidden;
+  background-color: #111020;
+  color:#d31158;
 }
-
 .love {
   position: absolute;
   background-color: red;

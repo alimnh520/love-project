@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import Header from './layout/Header'
+import { SessionProvider } from 'next-auth/react';
 
-const Provider = ({children}) => {
+const Provider = ({ children }) => {
     const mainDiv = useRef();
 
     useEffect(() => {
@@ -17,8 +18,8 @@ const Provider = ({children}) => {
                 newDiv.style.height = randomSize + 'px';
                 newDiv.style.width = randomSize + 'px';
 
-                newDiv.style.setProperty('--before-top', randomSize/2 + 'px');
-                newDiv.style.setProperty('--after-left', randomSize/2 + 'px');
+                newDiv.style.setProperty('--before-top', randomSize / 2 + 'px');
+                newDiv.style.setProperty('--after-left', randomSize / 2 + 'px');
 
                 const delayTime = Math.random() * 3 + 2;
                 const durationTime = Math.random() * 4 + 2;
@@ -29,13 +30,15 @@ const Provider = ({children}) => {
                 newDiv.style.left = move + 'px';
             }
         }
-
-    },[]);
+        
+    }, []);
 
     return (
         <div className='bg-[#111020] w-full overflow-hidden relative' ref={mainDiv}>
-            <Header />
-            {children}
+            <SessionProvider>
+                <Header />
+                {children}
+            </SessionProvider>
         </div>
     )
 }
